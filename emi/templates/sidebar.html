@@ -1,0 +1,53 @@
+    {%load static %}
+            <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
+						<div class="menu-logo">
+							<a href='#'><img src="" alt=""></a>
+						</div>
+                        <ul class="nav navbar-nav">	
+							<li class="active"><a href="/">Acceuil</a>
+							</li>
+							<li><a href="javascript:;">EMI<i class="fa fa-chevron-down"></i></a>
+								<ul class="sub-menu">
+						<li><a href="/all_evenements">Nos Evenements</a>
+									</li>
+												
+						<li><a href="/all_articles">Nos publications</a>
+									</li>
+						<li><a href="/all_projects">Nos projects</a>
+									</li>
+					<li><a href="/all_profiles">Personnels</a>
+									
+									</li>
+						<li><a href="/show_login">Connexion Etudiant</a>
+									</li>
+					
+								</ul>
+							</li>
+							<li class="add-mega-menu"><a href="javascript:;">Nos Departements<i class="fa fa-chevron-down"></i></a>
+								<ul class="sub-menu add-menu">
+									<li class="add-menu-left">
+										<h5 class="menu-adv-title">Nos Departements</h5>
+										{%for i in evenement%}
+						
+										<ul>
+											<li><a href="/lire_departement/{{i.id}}">{{i.titre|title}}</a></li>
+																	</ul>
+																	{% endfor%}
+									</li>
+													</ul>
+							</li>
+						<li  class="nav-dashboard"><a href="/all_opportunites">Opportunités</a>
+							</li>
+									<li  class="nav-dashboard"><a href="/apropos_nous">A propos de nous</a>
+									
+									</li>
+							<li class="nav-dashboard"><a href="/contacte">Nous contacter</a>
+							</li>
+						
+						</ul>
+						<div class="nav-social-link">
+							<a href="javascript:;"><i class="fa fa-facebook"></i></a>
+							<a href="javascript:;"><i class="fa fa-google-plus"></i></a>
+							<a href="javascript:;"><i class="fa fa-linkedin"></i></a>
+						</div>
+                    </div>              

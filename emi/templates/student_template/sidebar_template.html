@@ -1,0 +1,61 @@
+{% load static %}
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/" class="brand-link">
+      <img src="{%static  "dist/img/emi.jpeg"%}" alt="" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">{{classe.classe_nom}}</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{{users.profile_pic}}" class="img-circle elevation-2" alt="">
+        </div>
+        <div class="info">
+          <a href="{% url 'student_profile' %}" class="d-block">{{ users.etudiant_prenom }} {{user.last_name}}</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            {% url 'student_home' as student_home %}
+            <a href="{{ student_home }}" class="nav-link {% if request.path == student_home %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Tableau de bord
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+               {% url 'telecharge_horaire' as telecharge_horaire %}
+            <a href="{% url 'telecharge_horaire' %}" class="nav-link {% if request.path == telecharge_horaire %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Telecharger horaire
+              </p>
+            </a>
+          </li>
+  
+          <li class="nav-item">
+               {% url 'telecharge_valve' as telecharge_valve %}
+            <a href="{% url 'telecharge_valve' %}" class="nav-link {% if request.path == telecharge_valve %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Telecharger valve
+              </p>
+            </a>
+          </li>
+  
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

@@ -1,0 +1,128 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+	<!-- META ============================================= -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+	
+	<!-- DESCRIPTION -->
+	<meta name="description" content="EduChamp : Ecole des Mines site creé par Ruphin Rukengwa Mapendano" />
+	
+	<!-- OG -->
+	<meta property="og:title" content="EMI: Ecole des Mines" />
+	<meta property="og:description" content="EMI: EMI" />
+	<meta property="og:image" content="" />
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- FAVICONS ICON ============================================= -->
+	<link rel="icon" href="{%static  "dist/img/emi.jpeg"%}"  type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="{%static  "dist/img/emi.jpeg"%}"  />
+	
+	<!-- PAGE TITLE HERE ============================================= -->
+	<title>EMI : Ecole des Mines </title>
+	
+	<!-- MOBILE SPECIFIC ============================================= -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.min.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+	
+	<!-- All PLUGINS CSS ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/assets.css"%}">
+	<!-- TYPOGRAPHY ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/typography.css"%}">
+	
+	<!-- SHORTCODES ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/shortcodes/shortcodes.css"%}">
+	
+	<!-- STYLESHEETS ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/style.css"%}">
+	<link class="skin" rel="stylesheet" type="text/css" href="{% static  "assets/css/color/color-1.css"%}">
+	
+	
+</head>
+<body id="bg">
+<div class="page-wraper">
+<div id="loading-icon-bx"></div>
+
+	<!-- Header Top ==== -->
+    {% include 'header_template.html'%}  
+    <!-- header END ==== -->
+    <!-- Inner Content Box ==== -->
+    <div class="page-content">
+        <!-- Page Heading Box ==== -->
+        {% for i in image%}
+        <div class="page-banner ovbl-dark" style="background-image:url({{i.photo}});">
+            <div class="container">
+                <div class="page-banner-entry">
+                    <h1 class="text-white">A propos</h1>
+				 </div>
+            </div>
+        </div>
+		<div class="breadcrumb-row">
+			<div class="container">
+				<ul class="list-inline">
+					<li><a href="/">Acceuil</a></li>
+					<li>A propos de Nous</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Page Heading Box END ==== -->
+		<!-- Page Content Box ==== -->
+		<div class="content-block">
+			<!-- Our Status END ==== -->
+			<!-- About Content ==== -->
+			<div class="section-area section-sp2 bg-fix ovbl-dark join-bx text-center" style="background-image:url({{i.photo}});">
+                <div class="container">
+					<div class="row">
+						<div class="col-md-12">
+						    {%for v in apropos%}
+							<div class="join-content-bx text-white">
+								<h3>A propos de Nous</h3>
+													<p style="text-align:left">{{v.appropos|safe|linebreaks}}</p>
+					
+							</div>
+							{%endfor%}
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- About Content END ==== -->
+					</div>
+		{%endfor%}
+		<!-- Page Content Box END ==== -->
+    </div>
+    <!-- Inner Content Box END ==== -->
+    {% include 'footer_template.html' %}
+
+    <!-- scroll top button -->
+    <button class="back-to-top fa fa-chevron-up" ></button>
+</div>
+<!-- External JavaScripts -->
+<script src="{% static  "assets/js/jquery.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap/js/popper.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap/js/bootstrap.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap-select/bootstrap-select.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"%}"></script>
+<script src="{% static  "assets/vendors/magnific-popup/magnific-popup.js"%}"></script>
+<script src="{% static  "assets/vendors/counter/waypoints-min.js"%}"></script>
+<script src="{% static  "assets/vendors/counter/counterup.min.js"%}"></script>
+<script src="{% static  "assets/vendors/imagesloaded/imagesloaded.js"%}"></script>
+<script src="{% static  "assets/vendors/masonry/masonry.js"%}"></script>
+<script src="{% static  "assets/vendors/masonry/filter.js"%}"></script>
+<script src="{% static  "assets/vendors/owl-carousel/owl.carousel.js"%}"></script>
+<script src="{% static  "assets/js/functions.js"%}"></script>
+<script src="{% static  "assets/js/contact.js"%}"></script>
+<script src="{% static  "assets/vendors/switcher/switcher.js"%}"></script>
+</body>
+
+
+</html>

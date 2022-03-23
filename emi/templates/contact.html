@@ -1,0 +1,194 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+	<!-- META ============================================= -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+	
+	<!-- DESCRIPTION -->
+	<meta name="description" content="EduChamp : Ecole des Mines site creé par Ruphin Rukengwa Mapendano" />
+	
+	<!-- OG -->
+	<meta property="og:title" content="EMI: Ecole des Mines" />
+	<meta property="og:description" content="EMI: EMI" />
+	<meta property="og:image" content="" />
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- FAVICONS ICON ============================================= -->
+	<link rel="icon" href="{%static  "dist/img/emi.jpeg"%}"  type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="{%static  "dist/img/emi.jpeg"%}"  />
+	
+	<!-- PAGE TITLE HERE ============================================= -->
+	<title>EMI : Ecole des Mines </title>
+	
+	<!-- MOBILE SPECIFIC ============================================= -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.min.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+	
+	<!-- All PLUGINS CSS ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/assets.css"%}">
+	<!-- TYPOGRAPHY ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/typography.css"%}">
+	
+	<!-- SHORTCODES ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/shortcodes/shortcodes.css"%}">
+	
+	<!-- STYLESHEETS ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/style.css"%}">
+	<link class="skin" rel="stylesheet" type="text/css" href="{% static  "assets/css/color/color-1.css"%}">
+	
+	
+</head>
+<body id="bg">
+<div class="page-wraper">
+<div id="loading-icon-bx"></div>
+
+	<!-- Header Top ==== -->
+    <header class="header rs-nav">
+		<div class="top-bar">
+			<div class="container">
+				<div class="row d-flex justify-content-between">
+					<div class="topbar-left">
+						<ul>
+							<li><a href="javascript:;"><i class="fa fa-envelope-o"></i>emiinfo96@gmail.com</a></li>
+						</ul>
+					</div>
+					<div class="topbar-right">
+						<ul>
+							<li>
+							FRANÇAIS
+							</li>
+							<li><a href="/show_login">Admin connexion</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="sticky-header navbar-expand-lg">
+            <div class="menu-bar clearfix">
+                <div class="container clearfix">
+					<!-- Header Logo ==== -->
+					<div class="menu-logo">
+						<a href="index.html"><img src="" alt=""></a>
+					</div>
+					<!-- Mobile Nav Button ==== -->
+                    <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+					<!-- Author Nav ==== -->
+                    <div class="secondary-menu">
+                        <div class="secondary-inner">
+                            <ul>
+								<li><a href="javascript:;" class="btn-link"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="javascript:;" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="javascript:;" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
+								<!-- Search Button ==== -->
+								<li class="search-btn"><button id="quik-search-btn" type="button" class="btn-link"><i class="fa fa-search"></i></button></li>
+							</ul>
+						</div>
+                    </div>
+					<!-- Search Box ==== -->
+       
+					<!-- Navigation Menu ==== -->
+                    {% include 'sidebar.html'%}			<!-- Navigation Menu END ==== -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header END ==== -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+    {% for i in image%}
+        <div class="page-banner ovbl-dark" style="background-image:url({{i.photo}});">
+           
+            <div class="container">
+                <div class="page-banner-entry">
+                    <h1 class="text-white">Contacter Nous</h1>
+				 </div>
+            </div>
+        </div>
+		<!-- Breadcrumb row -->
+		<div class="breadcrumb-row">
+			<div class="container">
+				<ul class="list-inline">
+					<li><a href="/">Acceuil</a></li>
+					<li>Contacter Nous</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Breadcrumb row END -->
+	
+        <!-- inner page banner -->
+        <div class="page-banner contact-page section-sp2">
+            <div class="container">
+                <div class="row">
+                       {%for i in emi%}
+					<div class="col-lg-5 col-md-5 m-b30">
+					 
+						<div class="bg-primary text-white contact-info-bx">
+							<h2 class="m-b10 title-head">Contact <span>Information</span></h2>
+				
+							<div class="widget widget_getintuch">	
+								<ul>
+									<li><i class="ti-location-pin"></i>{{i.emi_adresse}}</li>
+									<li><i class="ti-mobile"></i>{{i.emi_phone}}</li>
+									<li><i class="ti-email"></i>{{i.emi_email}}</li>
+								</ul>
+							</div>
+							<h5 class="m-t0 m-b20">Reseaux sociaux</h5>
+							<ul class="list-inline contact-social-bx">
+								<li><a href="#" class="btn outline radius-xl"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#" class="btn outline radius-xl"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#" class="btn outline radius-xl"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="#" class="btn outline radius-xl"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					{%endfor%}
+				</div>
+            </div>
+		</div>
+		{%endfor%}
+        <!-- inner page banner END -->
+    </div>
+    <!-- Content END-->
+    <!-- Footer ==== -->
+        <!-- Footer END ==== -->
+        {% include 'footer_template.html' %}
+
+    <!-- scroll top button -->
+    <button class="back-to-top fa fa-chevron-up" ></button>
+</div>
+<!-- External JavaScripts -->
+<script src="{% static  "assets/js/jquery.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap/js/popper.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap/js/bootstrap.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap-select/bootstrap-select.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"%}"></script>
+<script src="{% static  "assets/vendors/magnific-popup/magnific-popup.js"%}"></script>
+<script src="{% static  "assets/vendors/counter/waypoints-min.js"%}"></script>
+<script src="{% static  "assets/vendors/counter/counterup.min.js"%}"></script>
+<script src="{% static  "assets/vendors/imagesloaded/imagesloaded.js"%}"></script>
+<script src="{% static  "assets/vendors/masonry/masonry.js"%}"></script>
+<script src="{% static  "assets/vendors/masonry/filter.js"%}"></script>
+<script src="{% static  "assets/vendors/owl-carousel/owl.carousel.js"%}"></script>
+<script src="{% static  "assets/js/functions.js"%}"></script>
+<script src="{% static  "assets/js/contact.js"%}"></script>
+<script src="{% static  "assets/vendors/switcher/switcher.js"%}"></script>
+</body>
+
+
+</html>

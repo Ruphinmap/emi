@@ -1,0 +1,58 @@
+{% extends 'base_template.html' %}
+{% block page_title %}
+Horaire
+{% endblock page_title %}
+{% load crispy_forms_tags %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Horaire</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+      <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                <div class="card-body">
+                     <div class="form-group">
+                      {% csrf_token %}
+                      {{ form|crispy }}
+           </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+
+      <!-- /.social-auth-links -->
+
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}

@@ -1,0 +1,75 @@
+{% extends 'base_template.html' %}
+{% block page_title %}
+Partenaire
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Partenaire</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+      <form action="/creer_partenaire_save" method="post" role="form" enctype="multipart/form-data">
+      {% csrf_token %}
+                <div class="card-body">
+                    <div class="form-group">
+                      {% if messages %}
+                        {% for message in messages %}
+                        {% if message.tags == 'error' %}
+                        <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+                        {% endif %}
+                        {% if message.tags == 'success' %}
+                        <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+                        {% endif %}
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label>Photo/logo</label>
+          <input type="file" class="form-control" placeholder="Image" name="profile_pic">
+        </div>
+        	<div class="form-group">
+                <label>Publier directement?</label>
+                <select class="form-control" name="status">
+                          <option value="False">NON</option>
+                          <option value="True">OUI</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Enregister</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+
+      <!-- /.social-auth-links -->
+
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}

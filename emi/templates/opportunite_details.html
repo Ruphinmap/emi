@@ -1,0 +1,139 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<!-- META ============================================= -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+	
+	<!-- DESCRIPTION -->
+	<meta name="description" content="EMI: Ecole des Mines site creé par Ruphin Rukengwa Mapendano" />
+	
+	<!-- OG -->
+	<meta property="og:title" content="EMI: Ecole des Mines" />
+	<meta property="og:description" content="EMI: EMI" />
+	<meta property="og:image" content="" />
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- FAVICONS ICON ============================================= -->
+	<link rel="icon" href="{%static  "dist/img/emi.jpeg"%}"  type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="{%static  "dist/img/emi.jpeg"%}"  />
+	
+	<!-- PAGE TITLE HERE ============================================= -->
+	<title>EMI : Ecole des Mines </title>
+	
+	<!-- MOBILE SPECIFIC ============================================= -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.min.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+	
+	<!-- All PLUGINS CSS ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/assets.css"%}">
+	<!-- TYPOGRAPHY ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/typography.css"%}">
+	
+	<!-- SHORTCODES ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/shortcodes/shortcodes.css"%}">
+	
+	<!-- STYLESHEETS ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/style.css"%}">
+	<link class="skin" rel="stylesheet" type="text/css" href="{% static  "assets/css/color/color-1.css"%}">
+	
+	
+</head>
+<body id="bg">
+<div class="page-wraper">
+<div id="loading-icon-bx"></div>
+
+	<!-- Header Top ==== -->
+     {% include 'header_template.html'%}    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+    
+        <div class="page-banner ovbl-dark" style="background-image:url({{article.photo}});">
+            <div class="container">
+                <div class="page-banner-entry">
+                    <h1 class="text-white">{{article.titre|upper}}</h1>
+				</div>
+            </div>
+        </div>
+		<!-- Breadcrumb row -->
+		<div class="breadcrumb-row">
+			<div class="container">
+				<ul class="list-inline">
+					<li><a href="/">Accueil  > Details</details></a></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+		<!-- Breadcrumb row END -->
+        <div class="content-block">
+			<div class="section-area section-sp1">
+				<div class="container">
+					<div class="row">
+						<!-- Left part start -->
+						<div class="col-lg-8 col-xl-8">
+							<!-- blog start -->
+							<div class="recent-news blog-lg">
+								<div class="action-box blog-lg">
+									<img src="{{article.photo}}" alt="">
+								</div>
+								<div class="info-bx">
+	
+									<h5 class="post-title">{{article.titre|title}}</h5>
+									<p>{{article.contenu|safe|linebreaks}}</p>	
+									</div>
+								</div>
+							</div>
+							<!-- blog END -->
+						</div><div class="ttr-divider bg-gray"><i class="icon-dot c-square"></i></div>
+														<div class="widget recent-posts-entry">
+									<h6 class="widget-title"> Toutes les opportunites</h6>
+									<div class="widget-post-bx">
+					{%for i in all_article%}					<div class="widget-post clearfix">
+											<div class="ttr-post-media"> <img src="{{i.photo}}" width="100" height="50" alt=""> </div>
+											<div class="ttr-post-info">
+												<div class="ttr-post-header">
+													<h6 class="post-title"><a href="/lire_opportunite/{{i.id}}">{{i.titre|title}}</a></h6>
+												</div>
+											</div>
+										</div>
+					{%endfor%}										<!-- Side bar END -->
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+    <!-- Content END-->
+<!-- Footer ==== -->
+ {% include 'footer_template.html' %}  <!-- Footer END ==== -->
+    <!-- scroll top button -->
+    <button class="back-to-top fa fa-chevron-up" ></button>
+</div>
+<script src="{% static  "assets/js/jquery.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap/js/popper.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap/js/bootstrap.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap-select/bootstrap-select.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"%}"></script>
+<script src="{% static  "assets/vendors/magnific-popup/magnific-popup.js"%}"></script>
+<script src="{% static  "assets/vendors/counter/waypoints-min.js"%}"></script>
+<script src="{% static  "assets/vendors/counter/counterup.min.js"%}"></script>
+<script src="{% static  "assets/vendors/imagesloaded/imagesloaded.js"%}"></script>
+<script src="{% static  "assets/vendors/masonry/masonry.js"%}"></script>
+<script src="{% static  "assets/vendors/masonry/filter.js"%}"></script>
+<script src="{% static  "assets/vendors/owl-carousel/owl.carousel.js"%}"></script>
+<script src="{% static  "assets/js/functions.js"%}"></script>
+<script src="{% static  "assets/js/contact.js"%}"></script>
+<script src="{% static  "assets/vendors/switcher/switcher.js"%}"></script>
+
+</body>
+
+</html>

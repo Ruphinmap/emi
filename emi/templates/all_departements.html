@@ -1,0 +1,160 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+	<!-- META ============================================= -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+	
+	<!-- DESCRIPTION -->
+	<meta name="description" content="EduChamp : Ecole des Mines site creé par Ruphin Rukengwa Mapendano" />
+	
+	<!-- OG -->
+	<meta property="og:title" content="EMI: Ecole des Mines" />
+	<meta property="og:description" content="EMI: EMI" />
+	<meta property="og:image" content="" />
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- FAVICONS ICON ============================================= -->
+	<link rel="icon" href="{%static  "dist/img/emi.jpeg"%}"  type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="{%static  "dist/img/emi.jpeg"%}"  />
+	
+	<!-- PAGE TITLE HERE ============================================= -->
+	<title>EMI : Ecole des Mines </title>
+	
+	<!-- MOBILE SPECIFIC ============================================= -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.min.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+	
+	<!-- All PLUGINS CSS ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/assets.css"%}">
+	<!-- TYPOGRAPHY ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/typography.css"%}">
+	
+	<!-- SHORTCODES ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/shortcodes/shortcodes.css"%}">
+	
+	<!-- STYLESHEETS ============================================= -->
+	<link rel="stylesheet" type="text/css" href="{% static  "assets/css/style.css"%}">
+	<link class="skin" rel="stylesheet" type="text/css" href="{% static  "assets/css/color/color-1.css"%}">
+	
+</head>
+<body id="bg">
+<div class="page-wraper">
+<div id="loading-icon-bx"></div>
+	<!-- Header Top ==== -->
+      {% include 'header_template.html'%}  
+    <!-- header END -->
+    <!-- Inner Content Box ==== -->
+    <div class="page-content bg-white">
+        <!-- Page Heading Box ==== -->
+        <div class="page-banner ovbl-dark" style="background-image:url( static/dist/img/photo.jpg);">
+            <div class="container">
+                <div class="page-banner-entry">
+                    <h1 class="text-white">Nos Departements</h1>
+				 </div>
+            </div>
+        </div>
+		<div class="breadcrumb-row">
+			<div class="container">
+				<ul class="list-inline">
+					<li><a href="/">Acceuil</a></li>
+					<li>Nos Departements</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Page Heading Box END ==== -->
+		<!-- Page Content Box ==== -->
+        <div class="content-block">
+			<!-- Blog Grid ==== -->
+			<div class="section-area section-sp1">
+				<div class="container">
+					<div class="ttr-blog-grid-3 row" id="masonry">
+					    {% for i in article %}
+						<div class="post action-card col-lg-4 col-md-6 col-sm-12 col-xs-12 m-b40">
+							<div class="recent-news">
+								<div class="action-box">
+									<img src="{{i.photo}}" alt="">
+								</div>
+								<div class="info-bx">
+	
+									<h5 class="post-title"><a href="blog-details.html">{{i.titre|title}}</a></h5>
+									<p>    {{i.contenu|safe|truncatewords:30}}</p>
+									<div class="post-extra">
+										<a href="/lire_departement/{{i.id}}" class="btn btn-block btn-danger">LIRE LA SUITE</a>
+									</div>						</div>
+							</div>
+						</div>
+						
+					{%empty%}
+					<div class="post action-card col-lg-4 col-md-6 col-sm-12 col-xs-12 m-b40">
+						    
+							<div class="recent-news">
+								<div class="action-box">
+									<img src="{%static  "dist/img/photo.jpg"%}" alt="">
+								</div>
+								<div class="info-bx">
+	
+									<h2 class="post-title"><a href="#">Ecole des Miines</a></h2>
+									<p><h4>
+					Information non disponible pour le moment <br/>				    Veillez reesayer plus tard</h4></p>
+							
+						
+															</div>
+							</div>
+						</div>
+						{% endfor%}
+					</div>
+					<!-- Pagination ==== -->
+					<div class="pagination-bx rounded-sm gray clearfix">
+						<ul class="pagination justify-content-center">
+						    {% if article.has_previous %}
+							<li class="page-item"><a class="page-link" href="?page={{article.previous_page_number}}"><span aria-hidden='true'>&laquo;</span></a></li>
+							{%endif%}
+							<li class="page-item"><p class='page-link text-muted'>Page {{article.number}} sur {{article.paginator.num_pages}}</p></li>
+							{% if article.has_next %}
+							<li class="page-item"><a class="page-link" href="?page={{article.next_page_number}}"><span aria-hidden='true'>&raquo;</span></a></li>
+							{%endif%}
+								</ul>
+					</div>
+				<!-- Pagination END ==== -->
+				</div>
+			</div>
+			<!-- Blog Grid END ==== -->
+        </div>
+		<!-- Page Content Box END ==== -->
+    </div>
+    <!-- Page Content Box END ==== -->
+	<!-- Footer ==== -->
+{% include 'footer_template.html'%}
+    <!-- Footer END ==== -->
+    <button class="back-to-top fa fa-chevron-up"></button>
+</div>
+<!-- External JavaScripts -->
+<script src="{% static  "assets/js/jquery.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap/js/popper.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap/js/bootstrap.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap-select/bootstrap-select.min.js"%}"></script>
+<script src="{% static  "assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"%}"></script>
+<script src="{% static  "assets/vendors/magnific-popup/magnific-popup.js"%}"></script>
+<script src="{% static  "assets/vendors/counter/waypoints-min.js"%}"></script>
+<script src="{% static  "assets/vendors/counter/counterup.min.js"%}"></script>
+<script src="{% static  "assets/vendors/imagesloaded/imagesloaded.js"%}"></script>
+<script src="{% static  "assets/vendors/masonry/masonry.js"%}"></script>
+<script src="{% static  "assets/vendors/masonry/filter.js"%}"></script>
+<script src="{% static  "assets/vendors/owl-carousel/owl.carousel.js"%}"></script>
+<script src="{% static  "assets/js/functions.js"%}"></script>
+<script src="{% static  "assets/js/contact.js"%}"></script>
+<script src="{% static  "assets/vendors/switcher/switcher.js"%}"></script>
+</body>
+
+</html>

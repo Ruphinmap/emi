@@ -1,0 +1,201 @@
+{% load static %}
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="{%static  "dist/img/emi.jpeg"%}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Ecole des Mines</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{%static  "dist/img/AdminLTELogo.png"%}" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="{% url 'admin_profile' %}" class="d-block">{{ user.username }}</a>
+        </div>
+      </div>
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            {% url 'admin_home' as admin_home %}
+            <a href="{{ admin_home }}" class="nav-link {% if request.path == admin_home %} active {% endif %}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Tableau de bord 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+               {% url 'appercu' as app%}
+            <a href="{% url 'appercu' %}" class="nav-link {% if request.path == appercu%} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Aperçu du site
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+               {% url 'creer_image' as creer_image%}
+            <a href="{% url 'creer_image' %}" class="nav-link {% if request.path == creer_image%} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Image Arriere plan
+              </p>
+            </a>
+          </li>
+ 
+            <li class="nav-item">
+               {% url 'creer_article' as creer_article %}
+            <a href="{% url 'creer_article' %}" class="nav-link {% if request.path == creer_article %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Creer une publication
+              </p>
+            </a>
+          </li>
+        <li class="nav-item">
+               {% url 'creer_evenement' as creer_evenement %}
+            <a href="{% url 'creer_evenement' %}" class="nav-link {% if request.path == creer_evenement %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+              Creer Evenement
+              </p>
+            </a>
+          </li>
+           <li class="nav-item">
+               {% url 'creer_project' as creer_project%}
+            <a href="{% url 'creer_project' %}" class="nav-link {% if request.path == creer_project %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Creer un project
+              </p>
+            </a>
+          </li>
+             <li class="nav-item">
+               {% url 'departement' as departement %}
+            <a href="{% url 'departement' %}" class="nav-link {% if request.path == departement %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+              Creer Departement
+              </p>
+            </a>
+          </li>
+        <li class="nav-item">
+               {% url 'promotion' as promotion %}
+            <a href="{% url 'promotion' %}" class="nav-link {% if request.path == promotion%} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+              Creer une promotion
+              </p>
+            </a>
+          </li>
+     <li class="nav-item">
+               {% url 'add_student' as add_student %}
+            <a href="{% url 'add_student' %}" class="nav-link {% if request.path == add_student%} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+              Ajouter un etudiant
+              </p>
+            </a>
+          </li>
+         <li class="nav-item">
+               {% url 'import_etudiant' as import_etudiant %}
+            <a href="{% url 'import_etudiant' %}" class="nav-link {% if request.path == import_etudiant %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+              Importer les etudiants
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+               {% url 'creer_horaire' as creer_horaire%}
+            <a href="{% url 'creer_horaire' %}" class="nav-link {% if request.path == creer_horaire%} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Horaire
+              </p>
+            </a>
+          </li>
+               <li class="nav-item">
+               {% url 'point' as point%}
+            <a href="{% url 'point' %}" class="nav-link {% if request.path == point%} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Points
+              </p>
+            </a>
+          </li>
+ 
+           <li class="nav-item">
+               {% url 'creer_opportunite' as creer_opportunite%}
+            <a href="{% url 'creer_opportunite' %}" class="nav-link {% if request.path == creer_opportunite %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Creer une Opportunite
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+               {% url 'add_profile' as add_profile %}
+            <a href="{% url 'add_profile' %}" class="nav-link {% if request.path == add_profile %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+              Creer  Profile Prof
+              </p>
+            </a>
+          </li>
+  
+         <li class="nav-item">
+               {% url 'creer_partenaire' as creer_partenaire%}
+            <a href="{% url 'creer_partenaire' %}" class="nav-link {% if request.path == creer_partenaire%} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+            Partenaires
+              </p>
+            </a>
+          </li>
+   <li class="nav-item">
+               {% url 'nombre_prof' as nombre_prof%}
+            <a href="{% url 'nombre_prof' %}" class="nav-link {% if request.path == nombre_prof %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+        Nombre d'enseignant
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+               {% url 'apropos' as apropos %}
+            <a href="{% url 'apropos' %}" class="nav-link {% if request.path == apropos %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                A propos de L'EMI
+              </p>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+               {% url 'add_emi' as add_emi %}
+            <a href="{% url 'add_emi' %}" class="nav-link {% if request.path == add_emi%} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Creer les contacts
+              </p>
+            </a>
+          </li>
+  
+ 
+          </ul>
+  
+            </nav> 
+          <!--
+          
+      sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

@@ -1,0 +1,161 @@
+{% extends 'base_template.html' %}
+{%load static%}
+{% block page_title %}
+Liste des etudiants
+{% endblock page_title %}
+{% block custom_css %}
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+    <link rel="stylesheet" href="{%static "plugins/fontawesome-free/css/all.min.css"%}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{%static "plugins/datatables-bs4/css/dataTables.bootstrap4.min.css"%}">
+  <link rel="stylesheet" href="{%static "plugins/datatables-responsive/css/responsive.bootstrap4.min.css"%}">
+  <link rel="stylesheet" href="{%static "plugins/datatables-buttons/css/buttons.bootstrap4.min.css"%}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{%static "dist/css/adminlte.min.css"%}">
+{% endblock custom_css %}
+
+{% block main_content %}
+  <!-- Content Wrapper. Contains page content -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- /.card -->
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">{% url 'add_student' as add_student %}
+            <a href="{% url 'add_student' %}" class="nav-link {% if request.path == add_student %} active {% endif %}">
+            +Ajouter un etudiant apartir du site</a></h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+
+                    <tr>
+                      
+                      <th>Matricule</th>
+                      <th>Nom</th>
+                      <th>Postnom</th>
+                      <th>Prenom</th>
+                      <th>Genre</th>
+                      <th>Photo</th>
+                      <th>Departement</th>
+                      <th>Promotion</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for student in students %}
+                    <tr>
+                       <td><a href="#"> <i class="fas fa-pen"></i> {{ student.student_roll }} </a></td>
+                      <td>{{ student.admin.first_name }}</td>
+                      <td>{{ student.admin.last_name }}</td>
+                      <td>{{ student.etudiant_prenom }}</td>
+                      <td>{{ student.gender }}</td>
+                      
+                      <td><img src="{{ student.profile_pic }}" alt=""style="width:80px"/></td>
+                      <td>{{ student.select_class.departement_select.titre}}</td>
+                      <td>{{ student.select_class.classe_code}}</td>
+                     
+                      <td>
+
+                        <a href="/delete_student/{{ student.admin.id }}" class="btn btn-danger">Supprimer <i class="fa fa-trash" title="Delete Record"></i>
+                        </a>
+                      </td>
+
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                <tfoot>
+                  <tr>
+                      
+                      <th>Matricule</th>
+                      <th>Nom</th>
+                      <th>Postnom</th>
+                      <th>Prenom</th>
+                      <th>Genre</th>
+                      <th>Photo</th>
+                      <th>Departement</th>
+                      <th>Promotion</th>
+                      <th>Action</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 4.0
+    </div>
+    <strong>Copyright &copy; {% now 'Y'%} <a href="https://facebook.com/ruphin.mapendano">Emiinfo</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+{% endblock main_content %}
+{% block custom_js %}
+
+
+<!-- jQuery -->
+<script src="{%static "plugins/jquery/jquery.min.js"%}"></script>
+<!-- Bootstrap 4 -->
+<script src="{%static "plugins/bootstrap/js/bootstrap.bundle.min.js"%}"></script>
+<!-- DataTables  & Plugins -->
+<script src="{%static "plugins/datatables/jquery.dataTables.min.js"%}"></script>
+<script src="{%static "plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"%}"></script>
+<script src="{%static "plugins/datatables-responsive/js/dataTables.responsive.min.js"%}"></script>
+<script src="{%static "plugins/datatables-responsive/js/responsive.bootstrap4.min.js"%}"></script>
+<script src="{%static "plugins/datatables-buttons/js/dataTables.buttons.min.js"%}"></script>
+<script src="{%static "plugins/datatables-buttons/js/buttons.bootstrap4.min.js"%}"></script>
+<script src="{%static "plugins/jszip/jszip.min.js"%}"></script>
+<script src="{%static "plugins/pdfmake/pdfmake.min.js"%}"></script>
+<script src="{%static "plugins/pdfmake/vfs_fonts.js"%}"></script>
+<script src="{%static "plugins/datatables-buttons/js/buttons.html5.min.js"%}"></script>
+<script src="{%static "plugins/datatables-buttons/js/buttons.print.min.js"%}"></script>
+<script src="{%static "plugins/datatables-buttons/js/buttons.colVis.min.js"%}"></script>
+<!-- AdminLTE App -->
+<script src="{%static "dist/js/adminlte.min.js"%}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{%static "dist/js/demo.js"%}"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+{% endblock custom_js %}

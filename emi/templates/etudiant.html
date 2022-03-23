@@ -1,0 +1,72 @@
+{% extends 'base_template.html' %}
+{% block page_title %}
+Etudiant
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">ETUDIANTS</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+      <form action="/nombre_etudiant_save" method="post" role="form" enctype="multipart/form-data">
+      {% csrf_token %}
+                <div class="card-body">
+                    <div class="form-group">
+                    <label>Declarer Nombre total d'etudiants</label>
+                    <input type="number" class="form-control" placeholder="Nombre d'etudiants" name="nombre">
+                  </div>
+                  <div class="form-group">
+                    <label>Nombre d'etudiant garcon</label>
+                    <input type="number" class="form-control" placeholder="Nombre d'etudiants garcon " name="garcon">
+                  </div>
+                  <div class="form-group">
+                    <label>Nombre d'etudiants fille</label>
+                    <input type="number" class="form-control" placeholder="Nombre d'etudiants fille " name="fille">
+                  </div>
+
+        <div class="form-group">
+                <label>Publier directement?</label>
+                <select class="form-control" name="status">
+                          <option value="False">NON</option>
+                          <option value="True">OUI</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Enregister</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+
+      <!-- /.social-auth-links -->
+
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}

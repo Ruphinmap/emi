@@ -1,0 +1,98 @@
+{% extends 'base_template.html' %}
+{% block page_title %}
+Opportunite
+{% endblock page_title %}
+{% block main_content %}
+{%load static%}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Opportunite</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+      <form action="/creer_opportunite_save" method="post" role="form" enctype="multipart/form-data">
+      {% csrf_token %}
+                <div class="card-body">
+                    
+                    <div class="form-group">
+                    <label>Titre</label>
+                    <input type="text" class="form-control" placeholder="ex: bourse" name="titre" id="id_username" autocomplete="off">
+                  </div>
+									<div class="form-group">
+										<label class="col-form-label">Appropos de l'Opportunite</label>
+					<textarea id="summernote" name="texte" style="with:200%" autofocu>  </textarea>				</div>
+			             
+                    <div class="form-group">
+                        <label>Photo</label>
+          <input type="file" class="form-control" placeholder="Image" name="profile_pic">
+        </div>
+        <div class="form-group">
+                <label>Publier directement?</label>
+                <select class="form-control" name="status">
+                          <option value="False">NON</option>
+                          <option value="True">OUI</option>
+                    </select>
+                </div>
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Enregister</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+
+      <!-- /.social-auth-links -->
+
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+{% block custom_js%}
+
+<script src="{% static "plugins/jquery/jquery.min.js"%}"></script>
+
+<!-- Bootstrap 4 -->
+<script src="{% static "plugins/bootstrap/js/bootstrap.bundle.min.js"%}"></script>
+<!-- AdminLTE App -->
+<script src="{% static "dist/js/adminlte.min.js"%}"></script>
+<!-- Summernote -->
+<script src="{% static "plugins/summernote/summernote-bs4.min.js"%}"></script>
+<!-- CodeMirror -->
+<!-- AdminLTE for demo purposes -->
+<script src="{% static "dist/js/demo.js"%}"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    // Summernote
+    $('#summernote').summernote({
+        height:150,
+    })
+
+    // CodeMirror  
+    })
+</script>
+{%endblock custom_js %}

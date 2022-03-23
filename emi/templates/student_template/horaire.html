@@ -1,0 +1,51 @@
+{% extends 'student_template/base_template.html' %}
+{% block page_title %}
+Horaire
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+                    <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+
+            <!-- /.card -->
+           <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">horaire</h3>
+              </div>
+
+               <div class="table">
+               <table class="table mb-0">
+    <thead>
+      <tr>
+
+        <th>titre</th>
+        <th>Download</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in horaire %}
+        <tr>
+          <td>Horaire</td>
+          <td>
+            <a href="{{ book.fichier.url }}" class="btn btn-primary btn-sm" target="_blank">
+              Telecharger
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+               </div>
+            </div>
+
+
+
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}

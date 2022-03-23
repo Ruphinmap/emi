@@ -1,0 +1,81 @@
+<footer>
+        <div class="footer-top">
+			<div class="pt-exebar">
+				<div class="container">
+					<div class="d-flex align-items-stretch">
+						<div class="pt-logo mr-auto">
+							<a href="#"><img src='' alt=""/></a>
+						</div>
+						<div class="pt-social-link">
+							<ul class="list-inline m-a0">
+								<li><a href="https://www.facebook.com/ruphin.mapendano" class="btn-link"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#" class="btn-link"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://www.linkedin.com/in/ruphin-map-558174219" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="mailto:emiinfo96@gmail.com" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+				
+					</div>
+				</div>
+			</div>
+            <div class="container">
+                <div class="row">
+					<div class="col-12 col-lg-6 col-md-7 col-sm-12">
+						<div class="row">
+							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
+								<div class="widget footer_widget">
+									<h5 class="footer-title">EMI</h5>
+									<ul>
+										<li><a href="/">Acceuil</a></li>
+										<li><a href="/apropos_nous">Apropos</a></li>
+										<li><a href="/contacte">Contacter</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
+								<div class="widget footer_widget">
+									<h5 class="footer-title">Organisation</h5>
+									<ul>
+										<li><a href="/all_departements">Departements</a></li>
+										<li><a href="/all_projects">Projects</a></li>
+										<li><a href="/all_profiles"> Enseignants</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
+								<div class="widget footer_widget">
+									<h5 class="footer-title">Publications</h5>
+									<ul>
+									    				<li><a href="/all_articles">Publications</a></li>
+									<li><a href="/all_evenements">Evenements</a></li>
+	
+															<li><a href="/all_opportunites"> Opportunites</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+                    </div>
+                    <div class="col-12 col-lg-3 col-md-5 col-sm-12 footer-col-4">
+                        <div class="widget widget_gallery gallery-grid-4">
+                            <h5 class="footer-title">Nos partenaires</h5>
+                        
+                            <ul class="magnific-image">
+                                
+                            </ul>
+                                {%for i in partenaire%}
+								<li><a href="#" class="magnific-anchor"><img src="{{i.photo}}" alt=""></a></li>
+							{%endfor%}						</ul>
+						
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 text-center"> <a target="_blank" href="https://www.facebook.com/ruphin.mapendano">Ruphin Mapendano</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
